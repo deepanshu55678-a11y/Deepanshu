@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE 3rd Semester - Academic Resource Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SCREEN 1: MODERN LOGIN INTERFACE -->
+    <div id="login-screen" class="auth-wrapper">
+        <div class="login-box">
+            <div class="badge">Student Access</div>
+            <h2>Academic Resource Hub</h2>
+            <p class="subtitle">Enter your details to access 3rd semester notes & PYQs.</p>
+            
+            <form onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="userName" placeholder="e.g. Rahul Sharma" required class="custom-input">
+                </div>
+                <div class="input-group">
+                    <label>Roll Number / College ID</label>
+                    <input type="text" id="userRoll" placeholder="e.g. 2301330100..." required class="custom-input">
+                </div>
+                <button type="submit" class="submit-btn">Continue to Portal &rarr;</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SCREEN 2: POLITE WELCOME & CLASSROOM PREVIEW SCREEN -->
+    <div id="welcome-screen" class="welcome-wrapper" style="display: none;">
+        <div class="welcome-card">
+            <h2 id="welcomeText">Welcome!</h2>
+            <p class="welcome-desc">You are now connected to the official 3rd Semester CSE preparation space.</p>
+            
+            <!-- Classroom Highlight Box -->
+            <div class="classroom-box">
+                <h3>Google Classroom</h3>
+                <p>Join to stay updated with assignment submissions, lecture schedules, and new drive uploads.</p>
+                <a href="https://classroom.google.com/c/ODU1MDE1NDIwMzY4?cjc=iaaxsq74" target="_blank" class="join-btn">
+                    Join Official Google Classroom
+                </a>
+            </div>
+
+            <!-- What should be available in this Classroom / Hub -->
+            <div class="resource-summary">
+                <h4>What is available in this Classroom & Hub?</h4>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <strong>Curated Theory Notes:</strong>
+                        <span>COA, Operating Systems, OOPs with Java, Automata (TAFL), Cybersecurity, Python, DBMS & Maths.</span>
+                    </div>
+                    <div class="summary-item">
+                        <strong>Previous Year Papers (PYQs):</strong>
+                        <span>OS, Java, Cybersecurity, Python, Sensors & Instrumentation, Constitution of India & Technical Communication.</span>
+                    </div>
+                    <div class="summary-item">
+                        <strong>Preparation & Extra Material:</strong>
+                        <span>Logical Reasoning Sets, General Studies (GK/GS), Hackathon Practice Problems & Official Syllabus.</span>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="goToPortal()" class="proceed-btn">Enter Resource Hub &rarr;</button>
+        </div>
+    </div>
+
+    <!-- SCREEN 3: MAIN RESOURCE PORTAL -->
+    <div id="portal-screen" class="portal-wrapper" style="display: none;">
+        <header>
+            <h1>CSE 3rd Semester Academic Portal</h1>
+            <p>Curated Study Notes and Previous Year Question Papers (PYQs)</p>
+        </header>
+
+        <!-- Tab Switcher -->
+        <div class="tab-container">
+            <button class="tab-btn active" onclick="switchTab('notes')">Study Notes</button>
+            <button class="tab-btn" onclick="switchTab('pyqs')">Previous Year Papers (PYQs)</button>
+        </div>
+
+        <!-- NOTES SECTION (Genuine folders from D: Drive) -->
+        <div id="notes-section" class="container">
+            <div class="card">
+                <h2>Automata (TAFL)</h2>
+                <p>Complete unit notes, state transition diagrams, CFG, and automata practice sheets.</p>
+                <a href="#" target="_blank" class="card-btn">View Notes</a>
+            </div>
+
+            <div class="card">
+                <h2>Operating Systems</h2>
+                <p>Process synchronization, CPU scheduling, memory hierarchy, and storage management notes.</p>
+                <a href="#" target="_blank" class="card-btn">View Notes</a>
+            </div>
+
+            <div class="card">
+                <h2>Computer Org. & Architecture (COA)</h2>
+                <p>Complete architecture notes, instruction cycles, pipelining, and cache memory.</p>
+                <a href="#" target="_blank" class="card-btn">View Notes</a>
+            </div>
+
+            <div class="card">
+                <h2>OOPs with Java</h2>
+                <p>Class hierarchies, polymorphism, inheritance, exception handling, and core Java concepts.</p>
+                <a href="#" target="_blank" class="card-btn">View Notes</a>
+            </div>
+
+            <div class="card">
+                <h2>Cybersecurity Notes</h2>
+                <p>Network security protocols, cyber laws, threat modeling, and encryption fundamentals.</p>
+                <a href="#" target="_blank" class="card-btn">View Notes</a>
+            </div>
+
+            <div class="card">
+                <h2>Python Programming Notes</h2>
+                <p>Data structures in Python, modules, file handling, and foundational scripting notes.</p>
+                <a href="#" target="_blank" class="card-btn">View Notes</a>
+            </div>
+
+            <div class="card">
+                <h2>Database Management System</h2>
+                <p>Relational algebra, ER modeling, SQL statements, and database normalization.</p>
+                <a href="#" target="_blank" class="card-btn">View Notes</a>
+            </div>
+
+            <div class="card">
+                <h2>Mathematics</h2>
+                <p>Formula collections, solved theorem derivations, and unit-wise question banks.</p>
+                <a href="#" target="_blank" class="card-btn">View Notes</a>
+            </div>
+
+            <div class="card">
+                <h2>Reasoning & Aptitude</h2>
+                <p>Verbal and non-verbal reasoning practice sets (Reasoning 1 & 2) for placement prep.</p>
+                <a href="#" target="_blank" class="card-btn">View Notes</a>
+            </div>
+
+            <div class="card">
+                <h2>GK, GS & Hackathon Prep</h2>
+                <p>General knowledge summaries, problem statements, and hackathon test sets.</p>
+                <a href="#" target="_blank" class="card-btn">View Notes</a>
+            </div>
+
+            <div class="card">
+                <h2>Official 3rd Sem Syllabus</h2>
+                <p>Course structure, evaluation criteria, and official semester curriculum handbook.</p>
+                <a href="#" target="_blank" class="card-btn">View Notes</a>
+            </div>
+        </div>
+
+        <!-- PYQ SECTION (Genuine question papers from D: Drive) -->
+        <div id="pyqs-section" class="container" style="display: none;">
+            <div class="card">
+                <h2>Operating Systems PYQs</h2>
+                <p>University semester exam question papers, sessional papers, and test series.</p>
+                <a href="#" target="_blank" class="card-btn pyq-accent">Download PYQ</a>
+            </div>
+
+            <div class="card">
+                <h2>OOPs with Java PYQs</h2>
+                <p>AKTU theory question papers and practical lab examination evaluations.</p>
+                <a href="#" target="_blank" class="card-btn pyq-accent">Download PYQ</a>
+            </div>
+
+            <div class="card">
+                <h2>Cybersecurity Question Papers</h2>
+                <p>End-semester question sets, model papers, and unit-wise exam questions.</p>
+                <a href="#" target="_blank" class="card-btn pyq-accent">Download PYQ</a>
+            </div>
+
+            <div class="card">
+                <h2>Python Programming PYQs</h2>
+                <p>Mid-term question papers and past programming university exams.</p>
+                <a href="#" target="_blank" class="card-btn pyq-accent">Download PYQ</a>
+            </div>
+
+            <div class="card">
+                <h2>Sensors & Instrumentation PYQs</h2>
+                <p>Past question papers covering transducer characteristics and instrumentation circuits.</p>
+                <a href="#" target="_blank" class="card-btn pyq-accent">Download PYQ</a>
+            </div>
+
+            <div class="card">
+                <h2>Technical Communication PYQs</h2>
+                <p>Semester question papers on technical writing, report structures, and presentation skills.</p>
+                <a href="#" target="_blank" class="card-btn pyq-accent">Download PYQ</a>
+            </div>
+
+            <div class="card">
+                <h2>Constitution of India PYQs</h2>
+                <p>University mandatory paper questions covering constitutional rights and directives.</p>
+                <a href="#" target="_blank" class="card-btn pyq-accent">Download PYQ</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT FOR SWITCHING -->
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const name = document.getElementById('userName').value.trim();
+            document.getElementById('welcomeText').innerText = `Welcome, ${name}! 👋`;
+            document.getElementById('login-screen').style.display = 'none';
+            document.getElementById('welcome-screen').style.display = 'flex';
+        }
+
+        function goToPortal() {
+            document.getElementById('welcome-screen').style.display = 'none';
+            document.getElementById('portal-screen').style.display = 'block';
+        }
+
+        function switchTab(tab) {
+            const notesSection = document.getElementById('notes-section');
+            const pyqsSection = document.getElementById('pyqs-section');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            if (tab === 'notes') {
+                notesSection.style.display = 'grid';
+                pyqsSection.style.display = 'none';
+                buttons[0].classList.add('active');
+                buttons[1].classList.remove('active');
+            } else {
+                notesSection.style.display = 'none';
+                pyqsSection.style.display = 'grid';
+                buttons[0].classList.remove('active');
+                buttons[1].classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
